@@ -1,0 +1,18 @@
+# QEMU on MAC
+brew install qemu
+# TODO: Create a qcow2 drive for the virtual machine to host there
+...
+# display list of VMs running
+virsh list
+# Start VM
+virsh define ubuntu_m1.xml
+virsh start ubuntu
+# To access the virtual machine, use VNC tool like RealVNC
+# Then connect to whatever address given in the .xml file, in this case,
+# it is 127.0.0.1
+# Display is up
+# Command line: ssh access from host, 2222 is fetched from the ubuntu_m1.xml
+ssh vikas@127.0.0.1 -p2222
+# Stop the VM
+virsh shutdown ubuntu
+# Source: https://www.naut.ca/blog/2021/12/09/arm64-vm-on-macos-with-libvirt-qemu/
